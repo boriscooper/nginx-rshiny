@@ -1,3 +1,5 @@
+## Dockerfile dated 1st May 2019
+
 FROM rocker/r-ver:3.5.3
 
 RUN apt-get update && apt-get install -y \
