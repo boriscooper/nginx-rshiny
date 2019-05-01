@@ -1,0 +1,30 @@
+version:  '3'
+
+services:
+       nginx:
+           image: auroradog/nginx3:latest
+           ports:
+              - 443:443
+           networks:
+               shinynet:
+                  ipv4_address: 10.3.0.2
+
+       roadsafety:
+           image:  auroradog/shinyroadsafety
+           networks:
+                shinynet:
+                  ipv4_address: 10.3.0.3
+
+       tfl:
+           image:  auroradog/shinytfl
+           networks:
+                shinynet:
+                  ipv4_address: 10.3.0.4
+
+networks:
+    shinynet:
+        external: TRUE
+
+
+
+    
