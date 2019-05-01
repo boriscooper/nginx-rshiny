@@ -10,13 +10,13 @@ services:
                   ipv4_address: 10.3.0.2
 
        roadsafety:
-           image:  auroradog/shinyroadsafety
+           image:  auroradog/shinyroadsafety:latest
            networks:
                 shinynet:
                   ipv4_address: 10.3.0.3
 
        tfl:
-           image:  auroradog/shinytfl
+           image:  auroradog/shinytfl:latest
            networks:
                 shinynet:
                   ipv4_address: 10.3.0.4

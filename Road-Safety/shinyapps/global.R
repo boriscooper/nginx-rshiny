@@ -12,8 +12,6 @@ library(shinycssloaders)
 library(plotly)
 library(leaflet)
 library(geojsonsf)
-library(aws.signature)
-library(aws.s3)
 ##-------------------------------------------------------
 
 ## set police force boundary names
@@ -22,8 +20,10 @@ police_data <- police_boundaries %>% mutate(police_force = pfa16nm) %>% select(p
 
 ##--------------------------------------------------------
 ##Read data from Amazon AWS S3 bucket "shinyRoadSafety"
-use_credentials()
-crashes_allDT <- s3readRDS(object = "crashes_2013_2017DT.rds", bucket = "roadsafetyshiny")
-setkey(crashes_allDT, accident_index)
-
+#use_credentials()
+#crashes_allDT <- s3readRDS(object = "crashes_2013_2017DT.rds", bucket = "roadsafetyshiny")
+#setkey(crashes_allDT, accident_index)
+## Read data from data directory
+base_dir <- "/srv/shiny-server"
+crashes_allDT <- readRDS(file = file.path(base_dir, "data", "crashes_2013_2017DT.rds"))
 ##--------------------------------------------------------
